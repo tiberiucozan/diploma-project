@@ -1,0 +1,28 @@
+name: Update Pull Requests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-prs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Update PRs
+        run: |
+          git fetch origin
+          PRS=$(gh pr list --base main --json number,headRefName --jq '.[] | .number + " " + .headRefName')
+          for PR in $PRS; do
+            PR_NUMBER=$(echo $PR | cut -d' ' -f1)
+            PR_BRANCH=$(echo $PR | cut -d' ' -f2)
+            git checkout $PR_BRANCH
+            git merge main --no-edit
+            git push origin $PR_BRANCH
+            echo "Updated PR #$PR_NUMBER"
+          done
