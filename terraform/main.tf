@@ -1,5 +1,7 @@
 locals {
   region = "LON1"
+  tags = "terraform"
+  network_name = "default"
 }
 
 module "civo-argo-cluster" {
@@ -7,6 +9,9 @@ module "civo-argo-cluster" {
   cluster_name = "ArgoCD-Cluster"
   node_count   = 2
   region       = local.region
+  network_name = local.network_name
+
+  tags = local.tags
 }
 
 module "civo-flux-cluster" {
@@ -14,4 +19,7 @@ module "civo-flux-cluster" {
   cluster_name = "FLux-Cluster"
   node_count   = 2
   region        = local.region
+  network_name = local.network_name
+
+  tags = local.tags
 }
