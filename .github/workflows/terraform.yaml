@@ -34,6 +34,7 @@ jobs:
 
     - name: Terraform Plan
       run: terraform plan -var="civo_token=${{ secrets.CIVO_TOKEN }}"
+      working-directory: terraform
 
   apply:
     name: 'Terraform Apply'
@@ -52,6 +53,8 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
+      working-directory: terraform
 
     - name: Terraform Apply
       run: terraform apply -auto-approve -var="civo_token=${{ secrets.CIVO_TOKEN }}"
+      working-directory: terraform
