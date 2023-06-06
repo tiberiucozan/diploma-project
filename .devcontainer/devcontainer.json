@@ -1,0 +1,22 @@
+{
+    "name": "My Dev Container",
+    "dockerFile": "Dockerfile",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "hashicorp.terraform",
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "redhat.vscode-yaml",
+                "ms-vscode.vscode-json-languageserver"
+            ],
+            "settings": {
+                "terraform.languageServer": {
+                    "external": true,
+                    "args": ["serve"]
+                }
+            }
+        }
+    },
+    "forwardPorts": [],
+    "postCreateCommand": "echo 'Everything is ready!'"
+}
