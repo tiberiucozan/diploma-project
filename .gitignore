@@ -1,0 +1,5 @@
+# Ignore .terraform directories
+**/.terraform/*
+
+# Ignore .terraform.lock.hcl files
+**/.terraform.lock.hcl

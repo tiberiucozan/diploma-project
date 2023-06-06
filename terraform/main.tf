@@ -3,11 +3,15 @@ locals {
 }
 
 module "civo-argo-cluster" {
-    source = "surajincloud/kubernetes/civo"
-    cluster_name = "ArgoCD-Cluster"
+  source       = "github.com/nlamirault/terraform-civo-kubernetes?ref=v0.3.0"
+  cluster_name = "ArgoCD-Cluster"
+  node_count   = 2
+  region       = local.region
 }
 
 module "civo-flux-cluster" {
-    source = "surajincloud/kubernetes/civo"
-    cluster_name = "FLux-Cluster"
+  source       = "github.com/nlamirault/terraform-civo-kubernetes?ref=v0.3.0"
+  cluster_name = "FLux-Cluster"
+  node_count   = 2
+  region        = local.region
 }
