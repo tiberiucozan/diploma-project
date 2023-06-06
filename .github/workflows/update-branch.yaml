@@ -1,0 +1,32 @@
+name: Update branches
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Setup Git
+        run: |
+          git config user.name "${{ secrets.USERNAME }}"
+          git config user.email "${{ secrets.USERNAME }}@users.noreply.github.com"
+
+      - name: Update branches
+        run: |
+          git fetch origin
+          for branch in $(git branch -r | grep -v '\->' | grep -v main); do
+            echo "Updating ${branch}"
+            git checkout ${branch#origin/}
+            git merge origin/main
+            git push origin ${branch#origin/}
+          done
