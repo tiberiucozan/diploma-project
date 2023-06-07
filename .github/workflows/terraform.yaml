@@ -28,11 +28,6 @@ jobs:
       run: terraform init
       working-directory: terraform
 
-    - name: Set the value
-      id: step_one
-      run: |
-        echo "civo_token=${{ secrets.CIVO_TOKEN }}" >> "$GITHUB_ENV"
-
     - name: Terraform Plan
       run: terraform plan -var="civo_token=${{ secrets.CIVO_TOKEN }}"
       working-directory: terraform
