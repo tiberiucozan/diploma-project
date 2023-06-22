@@ -1,6 +1,6 @@
 locals {
   region       = "LON1"
-  tags         = "terraform"
+  tags         = "terraform-created"
   network_name = "default"
 }
 
