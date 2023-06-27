@@ -30,6 +30,6 @@ module "civo-flux-cluster" {
 resource "civo_instance" "grafana" {
   hostname = "grafana"
   size     = "g2.xsmall"
-  template = "ubuntu-20.04"
+  disk_image = "ubuntu-focal"
   network_id = "default"
 }
