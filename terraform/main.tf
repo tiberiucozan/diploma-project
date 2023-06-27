@@ -25,3 +25,11 @@ module "civo-flux-cluster" {
 
   tags = local.tags
 }
+
+# Grafana instance alongside the Kubernetes clusters
+resource "civo_instance" "grafana" {
+  hostname = "grafana"
+  size     = "g2.xsmall"
+  template = "ubuntu-20.04"
+  network_id = "default"
+}
