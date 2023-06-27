@@ -26,33 +26,10 @@ module "civo-flux-cluster" {
   tags = local.tags
 }
 
-# Query small instance size
-data "civo_instances_size" "small" {
-    filter {
-        key = "name"
-        values = ["g3.small"]
-        match_by = "re"
-    }
-
-    filter {
-        key = "type"
-        values = ["instance"]
-    }
-
-}
-
-# Query instance disk image
-data "civo_disk_image" "debian" {
-   filter {
-        key = "name"
-        values = ["debian-10"]
-   }
-}
-
-# Create a new instance
+# Grafana instance alongside the Kubernetes clusters
 resource "civo_instance" "grafana" {
-    tags = ["grafana"]
-    notes = "Grafana Instance"
-    size = element(data.civo_instances_size.small.sizes, 0).name
-    disk_image = element(data.civo_disk_image.debian.diskimages, 0).id
+  hostname = "grafana"
+  size     = "g2.xsmall"
+  template = "ubuntu-20.04"
+  network_id = "default"
 }
