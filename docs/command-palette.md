@@ -13,3 +13,7 @@
 #### Test access
 
 ``` kubectl get ns ```
+
+#### Flux Dashboard ####
+
+``` kubectl -n flux-system port-forward service/ww-gitops-weave-gitops 9001:9001```
