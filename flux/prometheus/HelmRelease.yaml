@@ -27,3 +27,6 @@ spec:
       endpoints:
       - port: metrics
         interval: 30s
+    server:
+      service:
+        type: LoadBalancer
