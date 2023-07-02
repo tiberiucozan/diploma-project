@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: prometheus-lb
   namespace: prometheus
+  annotations:
+    fluxcd.io/ignore: true
 spec:
   selector:
     app: prometheus

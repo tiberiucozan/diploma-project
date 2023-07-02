@@ -2,6 +2,8 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: flux-metrics
+  annotations:
+    fluxcd.io/ignore: true
   labels:
     release: prometheus
 spec:
