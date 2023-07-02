@@ -16,4 +16,14 @@ spec:
         name: prometheus-community
         namespace: flux-system
   values:
-    # specify values for the Prometheus Helm chart here
+    serviceMonitors:
+    - name: flux-metrics
+      selector:
+        matchLabels:
+          app.kubernetes.io/name: flux
+      namespaceSelector:
+        matchNames:
+        - flux
+      endpoints:
+      - port: metrics
+        interval: 30s
