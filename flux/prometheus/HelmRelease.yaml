@@ -4,7 +4,7 @@ metadata:
   name: prometheus
   namespace: prometheus
   annotations:
-    fluxcd.io/ignore: false
+    fluxcd.io/ignore: "false"
 spec:
   interval: 1m0s
   chart:
