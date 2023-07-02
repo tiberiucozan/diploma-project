@@ -1,0 +1,11 @@
+serviceMonitors:
+- name: argocd
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: argocd-metrics
+  namespaceSelector:
+    matchNames:
+    - argocd
+  endpoints:
+  - port: metrics
+    interval: 30s
