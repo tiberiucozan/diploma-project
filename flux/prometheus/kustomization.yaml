@@ -4,5 +4,5 @@ resources:
 - HelmRelease.yaml
 - HelmRepository.yaml
 - namespace.yaml
-# - ServiceMonitor.yaml
+- ServiceMonitor.yaml
 - PrometheusLB.yaml
