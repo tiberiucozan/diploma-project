@@ -10,8 +10,20 @@ spec:
     targetRevision: HEAD
     path: argo/prometheus/
     helm:
-      valueFiles:
-      - values.yaml
+      values: | 
+        serviceMonitors:
+        - name: argocd
+          selector:
+            matchLabels:
+              app.kubernetes.io/name: argocd-metrics
+          namespaceSelector:
+            matchNames:
+            - argocd
+          endpoints:
+          - port: metrics
+            interval: 30s
+        service:
+          type: LoadBalancer
   destination:
     server: https://kubernetes.default.svc
     namespace: prometheus
