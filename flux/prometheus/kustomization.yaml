@@ -4,4 +4,4 @@ resources:
 - HelmRelease.yaml
 - HelmRepository.yaml
 - namespace.yaml
-- PodMonitor.yaml
+# - PodMonitor.yaml
