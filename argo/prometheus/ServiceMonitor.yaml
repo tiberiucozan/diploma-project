@@ -1,16 +1,13 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: flux-metrics
-  namespace: prometheus
-  annotations:
-    fluxcd.io/ignore: "true"
+  name: argocd-metrics
   labels:
     release: prometheus
 spec:
   selector:
     matchLabels:
-      name: flux  # Adjust this to match the label of the Flux CD service
+      app.kubernetes.io/name: argocd-server
   endpoints:
   - port: http
     path: /metrics
