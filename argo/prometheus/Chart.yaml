@@ -4,6 +4,6 @@ description: A Helm chart for Prometheus
 type: application
 version: 2.45.0
 dependencies:
-- name: prometheus
+- name: prometheus-community/kube-prometheus-stack
   version: "22.7.0"
   repository: "https://prometheus-community.github.io/helm-charts"
