@@ -11,4 +11,5 @@ serviceMonitors:
     interval: 30s
 server:    
   service:
+    enabled: true
     type: LoadBalancer
