@@ -9,5 +9,6 @@ serviceMonitors:
   endpoints:
   - port: metrics
     interval: 30s
-service:
-  type: LoadBalancer
+server:    
+  service:
+    type: LoadBalancer
