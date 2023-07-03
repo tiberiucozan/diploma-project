@@ -2,7 +2,7 @@ apiVersion: v2
 name: prometheus
 description: A Helm chart for Prometheus
 type: application
-version: 2.45.0
+version: 47.2.0
 dependencies:
 - name: kube-prometheus-stack
   version: "22.7.0"
