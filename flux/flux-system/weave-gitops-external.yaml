@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ww-gitops-weave-gitops-external
+  namespace: flux-system
+spec:
+  ports:
+  - name: http
+    port: 9001
+    protocol: TCP
+    targetPort: http
+  selector:
+    app.kubernetes.io/instance: ww-gitops
+    app.kubernetes.io/name: weave-gitops
+  sessionAffinity: None
+  type: LoadBalancer
