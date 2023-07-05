@@ -1,6 +1,6 @@
 # SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 apiVersion: v1
-#kind: Service
+kind: Service
 metadata:
   name: frontend
   namespace: test-app
