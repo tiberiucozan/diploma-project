@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/tiberiucozan/diploma-project.git'
+    targetRevision: HEAD
+    path: applications/test-app
+    kustomize:
+      namePrefix: argo-
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: test-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
