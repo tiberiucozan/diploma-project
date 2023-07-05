@@ -9,8 +9,6 @@ spec:
     repoURL: 'https://github.com/tiberiucozan/diploma-project.git'
     targetRevision: HEAD
     path: applications/test-app
-    kustomize:
-      namePrefix: argo-
   destination:
     server: https://kubernetes.default.svc
     namespace: test-app
