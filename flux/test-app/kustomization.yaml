@@ -4,4 +4,3 @@ metadata:
   name: test-app
 resources:
 - flux.yaml
-- gitrepository.yaml
