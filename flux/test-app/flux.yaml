@@ -9,4 +9,4 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: diploma-project-repo
+    name: flux-system
